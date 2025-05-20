@@ -1,32 +1,32 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Calculator : MonoBehaviour
 {
-    public int number1; // ¸â¹öº¯¼ö(field)
-    public int number2; // ¸â¹öº¯¼ö(field)
+    public int number1; // ë©¤ë²„ë³€ìˆ˜(field)
+    public int number2; // ë©¤ë²„ë³€ìˆ˜(field)
 
     void Start()
     {
-        int addReturn = AddMethod(); // ÇÔ¼ö È£Ãâ
-        int MinusReturn = MinusMethod(); // ÇÔ¼ö È£Ãâ
+        int addReturn = AddMethod(); // í•¨ìˆ˜ í˜¸ì¶œ
+        int MinusReturn = MinusMethod(); // í•¨ìˆ˜ í˜¸ì¶œ
 
-        Debug.Log($"´õÇÑ °ª : {addReturn} / »« °ª : {MinusMethod()}");
+        Debug.Log($"ë”í•œ ê°’ : {addReturn} / ëº€ ê°’ : {MinusMethod()}");
 
-        Debug.Log($"Result 1 :{AddMethod()}"); // ÇÔ¼ö È£Ãâ ¹× °ª ¸®ÅÏ
+        Debug.Log($"Result 1 :{AddMethod()}"); // í•¨ìˆ˜ í˜¸ì¶œ ë° ê°’ ë¦¬í„´
         Debug.Log($"Result 2 :{MinusMethod()}");
     }
 
     int AddMethod()
     {
-        int result = number1 + number2; // result : Áö¿ªº¯¼ö
-        return result; // °á°ú°ª ¸®ÅÏ
-        //Debug.Log($"Result 1 :{result}"); // Ç¥±â¸¦ À§ÇÑ µğ¹ö±× ·Î±×
+        int result = number1 + number2; // result : ì§€ì—­ë³€ìˆ˜
+        return result; // ê²°ê³¼ê°’ ë¦¬í„´
+        //Debug.Log($"Result 1 :{result}"); // í‘œê¸°ë¥¼ ìœ„í•œ ë””ë²„ê·¸ ë¡œê·¸
     }
 
     int MinusMethod()
     {
-        int result = number1 - number2; // result : Áö¿ªº¯¼ö
-        return result; // °á°ú°ª ¸®ÅÏ
-        //Debug.Log($"Result 2 :{result}"); // Ç¥±â¸¦ À§ÇÑ µğ¹ö±× ·Î±×
+        int result = number1 - number2; // result : ì§€ì—­ë³€ìˆ˜
+        return result; // ê²°ê³¼ê°’ ë¦¬í„´
+        //Debug.Log($"Result 2 :{result}"); // í‘œê¸°ë¥¼ ìœ„í•œ ë””ë²„ê·¸ ë¡œê·¸
     }
 }
