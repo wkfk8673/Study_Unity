@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W)) // 앞으로 가는 기능
         {
-            transform.position += Vector3.forward * moveSpeed * Time.deltaTime; // 보통 사용하는 방법
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // 보통 사용하는 방법
         }
         if (Input.GetKey(KeyCode.S)) // 뒤로 가는 기능
         {
@@ -34,11 +34,11 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A)) // 왼쪽으로 가는 기능
         {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime; // 보통 사용하는 방법
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // 보통 사용하는 방법
         }
         if (Input.GetKey(KeyCode.D)) // 오른쪽으로 가는 기능
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime; // 보통 사용하는 방법
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // 보통 사용하는 방법
         }
 
     }
