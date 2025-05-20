@@ -1,18 +1,18 @@
 using UnityEngine;
 
 /// <summary>
-/// Ä³¸¯ÅÍ¸¦ ¿òÁ÷ÀÌ°Ô ÇÏ´Â ½ºÅ©¸³Æ®
+/// ìºë¦­í„°ë¥¼ ì›€ì§ì´ê²Œ í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸
 /// </summary>
 
 public class Movement : MonoBehaviour
 {
-    // C# ¿¡¼­ ÃÊ±âÈ­ ÇÏÁö ¾ÊÀº moveSpeed ´Â 0f ·Î Àâ°í ÀÖÀ½.
+    // C# ì—ì„œ ì´ˆê¸°í™” í•˜ì§€ ì•Šì€ moveSpeed ëŠ” 0f ë¡œ ì¡ê³  ìˆìŒ.
     public float moveSpeed;
-    // Position °ª Á¢±Ù
+    // Position ê°’ ì ‘ê·¼
     void Start()
     {
-        //ÇöÀç À§Ä¡ = ÇöÀç À§Ä¡ + (0,0,1) 
-        //¿©±â¼­ this ´Â AmongUs Ä³¸¯ÅÍ (prefab)
+        //í˜„ì¬ ìœ„ì¹˜ = í˜„ì¬ ìœ„ì¹˜ + (0,0,1) 
+        //ì—¬ê¸°ì„œ this ëŠ” AmongUs ìºë¦­í„° (prefab)
 
     }
 
@@ -20,25 +20,25 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //this.transform.position = this.transform.position + Vector3.forward * moveSpeed;
-        //transform.position += Vector3.forward * moveSpeed * Time.deltaTime; // º¸Åë »ç¿ëÇÏ´Â ¹æ¹ı
+        //transform.position += Vector3.forward * moveSpeed * Time.deltaTime; // ë³´í†µ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
 
-        // °ú°Å input ¹æ½ÄÀ¸·Î ÀÛ¼ºÇÑ ÄÚµå 2DÇÁ·ÎÁ§Æ®¿¡¼­ »ç¿ë ¿¹Á¤
+        // ê³¼ê±° input ë°©ì‹ìœ¼ë¡œ ì‘ì„±í•œ ì½”ë“œ 2Dí”„ë¡œì íŠ¸ì—ì„œ ì‚¬ìš© ì˜ˆì •
 
-        if (Input.GetKey(KeyCode.W)) // ¾ÕÀ¸·Î °¡´Â ±â´É
+        if (Input.GetKey(KeyCode.W)) // ì•ìœ¼ë¡œ ê°€ëŠ” ê¸°ëŠ¥
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // º¸Åë »ç¿ëÇÏ´Â ¹æ¹ı
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // ë³´í†µ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
         }
-        if (Input.GetKey(KeyCode.S)) // µÚ·Î °¡´Â ±â´É
+        if (Input.GetKey(KeyCode.S)) // ë’¤ë¡œ ê°€ëŠ” ê¸°ëŠ¥
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // º¸Åë »ç¿ëÇÏ´Â ¹æ¹ı
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // ë³´í†µ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
         }
-        if (Input.GetKey(KeyCode.A)) // ¿ŞÂÊÀ¸·Î °¡´Â ±â´É
+        if (Input.GetKey(KeyCode.A)) // ì™¼ìª½ìœ¼ë¡œ ê°€ëŠ” ê¸°ëŠ¥
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // º¸Åë »ç¿ëÇÏ´Â ¹æ¹ı
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // ë³´í†µ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
         }
-        if (Input.GetKey(KeyCode.D)) // ¿À¸¥ÂÊÀ¸·Î °¡´Â ±â´É
+        if (Input.GetKey(KeyCode.D)) // ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°€ëŠ” ê¸°ëŠ¥
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // º¸Åë »ç¿ëÇÏ´Â ¹æ¹ı
+            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // ë³´í†µ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
         }
 
     }

@@ -2,13 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// C# ÇÁ·Î±×·¡¹Ö¿¡¼­ Class ¿Í Struct ÀÇ Â÷ÀÌ¸¦ ÆÄ¾Ç
+/// C# í”„ë¡œê·¸ë˜ë°ì—ì„œ Class ì™€ Struct ì˜ ì°¨ì´ë¥¼ íŒŒì•…
 /// </summary>
 
 public class Study_Class
 {
     public int number;
-    public Study_Class(int number) //»ı¼ºÀÚ
+    public Study_Class(int number) //ìƒì„±ì
     {
         this.number = number;
     }
@@ -17,7 +17,7 @@ public class Study_Class
 public struct Study_Struct
 {
     public int number;
-    public Study_Struct(int number) //»ı¼ºÀÚ
+    public Study_Struct(int number) //ìƒì„±ì
     {
         this.number = number;
     }
@@ -29,7 +29,7 @@ public class Study_ClassStruct : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Å¬·¡½º------------------------------------------");
+        Debug.Log("í´ë˜ìŠ¤------------------------------------------");
         Study_Class c1 = new Study_Class(12);
         Study_Class c2 = c1;
         Debug.Log($"c1 :{c1.number} / c2 : {c2.number}");
@@ -37,7 +37,7 @@ public class Study_ClassStruct : MonoBehaviour
         c1.number = 100;
         Debug.Log($"c1 :{c1.number} / c2 : {c2.number}");
 
-        Debug.Log("±¸Á¶Ã¼------------------------------------------");
+        Debug.Log("êµ¬ì¡°ì²´------------------------------------------");
         Study_Struct s1 = new Study_Struct(45);
         Study_Struct s2 = s1;
         Debug.Log($"s1 :{s1.number} / s2 : {s2.number}");

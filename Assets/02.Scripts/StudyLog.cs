@@ -1,17 +1,17 @@
 using UnityEngine;
 
 /// <summary>
-/// À¯´ÏÆ¼ ¿¡µğÅÍ¿¡ ÀÖ´Â Console View ¿¡ Log ¸¦ Å×½ºÆ®ÇÏ±â À§ÇÑ Å¬·¡½º
+/// ìœ ë‹ˆí‹° ì—ë””í„°ì— ìˆëŠ” Console View ì— Log ë¥¼ í…ŒìŠ¤íŠ¸í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤
 /// </summary>
 
 public class StudyLog : MonoBehaviour
-{// ¾Õ¿¡ ¼ıÀÚ, ¾ğ´õ¹Ù Á¦¿Ü
+{// ì•ì— ìˆ«ì, ì–¸ë”ë°” ì œì™¸
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Start ÇÔ¼ö ½ÇÇà"); // ÀÏ¹İÀûÀÎ ·Î±× 
-        Debug.LogWarning("Start ÇÔ¼ö ½ÇÇà"); // °æ°í ·Î±×
-        Debug.LogError("Start ÇÔ¼ö ½ÇÇà"); // ¿¡·¯ ·Î±×
+        Debug.Log("Start í•¨ìˆ˜ ì‹¤í–‰"); // ì¼ë°˜ì ì¸ ë¡œê·¸ 
+        Debug.LogWarning("Start í•¨ìˆ˜ ì‹¤í–‰"); // ê²½ê³  ë¡œê·¸
+        Debug.LogError("Start í•¨ìˆ˜ ì‹¤í–‰"); // ì—ëŸ¬ ë¡œê·¸
     }
 
     // Update is called once per frame
