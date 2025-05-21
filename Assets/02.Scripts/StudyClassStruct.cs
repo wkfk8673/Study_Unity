@@ -24,7 +24,7 @@ public struct Study_Struct
 
 }
 
-public class Study_ClassStruct : MonoBehaviour
+public class StudyClassStruct : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
