@@ -24,9 +24,10 @@ public class Movement : MonoBehaviour
 
         // 과거 input 방식으로 작성한 코드 2D프로젝트에서 사용 예정
 
+        /*
         if (Input.GetKey(KeyCode.W)) // 앞으로 가는 기능
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // 보통 사용하는 방법
+            transform.position += moveSpeed * Time.deltaTime * Vector3.forward; // 보통 사용하는 방법
         }
         if (Input.GetKey(KeyCode.S)) // 뒤로 가는 기능
         {
@@ -34,12 +35,27 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A)) // 왼쪽으로 가는 기능
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // 보통 사용하는 방법
+            transform.position += moveSpeed * Time.deltaTime * Vector3.left; // 보통 사용하는 방법
         }
         if (Input.GetKey(KeyCode.D)) // 오른쪽으로 가는 기능
         {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.back; // 보통 사용하는 방법
+            transform.position += moveSpeed * Time.deltaTime * Vector3.right; // 보통 사용하는 방법
         }
+        */
 
+        /// Input System (Old - Legacy)
+        /// 입력값에 대한 약속된 시스템
+        /// 이동 -> WASD, 화살표키보드
+        /// 점프 -> Space
+        /// 총쏘기 -> 마우스 왼쪽
+
+        // 부드럽게 증감하는 값
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(h, 0, v);
+        Debug.Log($"현재 입력 : {dir}");
+
+        transform.position += dir * moveSpeed * Time.deltaTime;
     }
 }
