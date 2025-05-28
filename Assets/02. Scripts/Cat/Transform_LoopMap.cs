@@ -10,12 +10,8 @@ public class Transform_LoopMap : MonoBehaviour
 
 
     public float moveSpeed = 2f;
-    private Vector3 returnPos = new Vector3(30f, 0f, 0f);// 다시 등장하는 위치
-
-    void Start()
-    {
-        returnPos = new Vector3(30f, transform.position.y, 0f);// 다시 등장하는 위치
-    }
+    public float returnPosX = 15f;
+    public float randomPosY;
 
 
     void Update()
@@ -23,9 +19,10 @@ public class Transform_LoopMap : MonoBehaviour
         transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime; // 배경을 왼쪽으로 이동시키는 기능
         Debug.Log(Time.fixedDeltaTime);
 
-        if (transform.position.x <= -30f) // 오브젝트가 카메라 영역을 빠져나갔을 경우 (x 축 -30)
+        if (transform.position.x <= -returnPosX) // 오브젝트가 카메라 영역을 빠져나갔을 경우 (x 축 -30)
         {
-            transform.position = returnPos; // retunsPos 로 초기화
+            randomPosY = Random.Range(-8f, -4f);
+            transform.position = new Vector3(returnPosX,randomPosY,0); // retunsPos 로 초기화
         }
     }
 }
