@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
 {
     // C# 에서 초기화 하지 않은 moveSpeed 는 0f 로 잡고 있음.
     public float moveSpeed;
+
+    // Coin manager 대신 사용
+    public static int coinCount = 0; // 정적변수로 생성하여 타 스크립트에서 접근
+
     // Position 값 접근
     void Start()
     {
@@ -61,7 +65,7 @@ public class Movement : MonoBehaviour
         Vector3 dir = new Vector3(h, 0, v);
         Vector3 normalDir = dir.normalized; // dir 값을 정규화 한 후 normalDir 에 저장
         
-        Debug.Log($"현재 입력 : {dir}");
+        //Debug.Log($"현재 입력 : {dir}");
 
         transform.position += normalDir * moveSpeed * Time.deltaTime; // 이동하는 기능
         this.transform.LookAt(transform.position + dir); // 어떤 위치를 즉시 바라보는 기능
