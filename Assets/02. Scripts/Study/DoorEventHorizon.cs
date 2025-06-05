@@ -6,6 +6,8 @@ public class DoorEventHorizon : MonoBehaviour
     public string openKey;
     public string closeKey;
 
+    public GameObject DoorLockUI;
+
     private void Start()
     {
         // 본인이 들고 있는 애니메이터 컴포넌트를 할당하겠다.
@@ -16,7 +18,8 @@ public class DoorEventHorizon : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Trigger 명칭을 변경
-            anim.SetTrigger(openKey);
+            // anim.SetTrigger(openKey);
+            DoorLockUI.SetActive(true);
         }
     }
 
@@ -26,6 +29,7 @@ public class DoorEventHorizon : MonoBehaviour
         {
             // Trigger 명칭을 변경
             anim.SetTrigger(closeKey);
+            DoorLockUI.SetActive(false);
         }
     }
 }

@@ -8,6 +8,7 @@ public class CatController : MonoBehaviour
     private Animator catAnim;
 
 
+
     public float jumpPower = 10f;
     private bool isGround = false;
     private float limitPower = 10f;
