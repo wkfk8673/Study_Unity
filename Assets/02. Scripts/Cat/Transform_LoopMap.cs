@@ -13,6 +13,12 @@ public class Transform_LoopMap : MonoBehaviour
     public float returnPosX = 15f;
     public float randomPosY;
 
+    private void Start()
+    {
+        randomPosY = Random.Range(-8, -3);
+        transform.position = new Vector3(transform.position.x, randomPosY, 0);
+    }
+
 
     void Update()
     {
@@ -21,7 +27,7 @@ public class Transform_LoopMap : MonoBehaviour
 
         if (transform.position.x <= -returnPosX) // 오브젝트가 카메라 영역을 빠져나갔을 경우 (x 축 -30)
         {
-            randomPosY = Random.Range(-8f, -4f);
+            randomPosY = Random.Range(-8, -3);
             transform.position = new Vector3(returnPosX,randomPosY,0); // retunsPos 로 초기화
         }
     }

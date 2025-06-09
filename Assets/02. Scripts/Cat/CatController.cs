@@ -44,6 +44,10 @@ public class CatController : MonoBehaviour
                 CatRb.linearVelocityY = limitPower;
             }
         }
+
+        var catRotation = transform.eulerAngles;
+        catRotation.z = CatRb.linearVelocity.y * 1.5f;
+        transform.eulerAngles = catRotation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
