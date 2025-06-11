@@ -9,6 +9,8 @@ TagManager:
   - Score40
   - Score10
   - Gameover
+  - Apple
+  - Pipe
   layers:
   - Default
   - TransparentFX
