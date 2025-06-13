@@ -25,6 +25,7 @@ namespace Cat
             var endingClip  = isHappy ? vClips[0] : vClips[1]; //isHappy 조건에 따라 var clip 에 vClips 할당
             vPlayer.clip = endingClip; // var clip 에 저장된 사항을 vPlayer 에 할당
             vPlayer.Play(); // 재생
+
         }
     }
 

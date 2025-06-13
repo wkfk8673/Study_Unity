@@ -17,12 +17,17 @@ public class ItemEvent : MonoBehaviour
     public float returnPosX = 20f;
     private float randomPosY;
 
+    private Vector3 initPos; // 최초 파이프 위치값을 저장
 
-    private void Start()
+    private void Awake()
     {
-        SetRandomSetting(transform.position.x); // 본인 위치로 배치
+        initPos = transform.localPosition; // 최초 1회 저장
     }
 
+    private void OnEnable()
+    {
+        SetRandomSetting(initPos.x);
+    }
 
     void Update()
     {

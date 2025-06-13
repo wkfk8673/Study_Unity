@@ -12,12 +12,14 @@ namespace Cat
         public GameObject playObj;
         public GameObject introUI;
         public GameObject playUI;
+        public GameObject videoPanel;
 
 
         public TMP_InputField inputField;
         public TextMeshProUGUI nameTextUI; // 컴포넌트
 
         public Button startButton;
+        public Button reStartButton;
 
 
         private void Awake()
@@ -31,6 +33,7 @@ namespace Cat
         {
             // start 버튼 접근 후 클릭 이벤트에서 OnStartButton() 이벤트 호출
             startButton.onClick.AddListener(OnStartButton);
+            reStartButton.onClick.AddListener(OnRestartButton);
         }
 
         public void OnStartButton()
@@ -53,11 +56,18 @@ namespace Cat
 
                 GameManager.isPlay = true; // intro 와 play 씬 간 연결
 
-                introUI.SetActive(false);
                 playObj.SetActive(true);
                 playUI.SetActive(true);
+                introUI.SetActive(false);
             }
             startButton.interactable = true;
+        }
+
+        public void OnRestartButton()
+        {
+            GameManager.ResetPlayUI();
+            playObj.SetActive(true);
+            videoPanel.SetActive(false);
         }
     }
 

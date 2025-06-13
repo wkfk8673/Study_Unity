@@ -1,9 +1,6 @@
 using System.Collections;
 using Cat;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.Video;
 
 public class CatController : MonoBehaviour
 {
@@ -21,10 +18,17 @@ public class CatController : MonoBehaviour
 
     private int jumpCnt = 0;
 
-    void Start()
+    void Awake() // 최초 1회 실행
     {
         CatRb = GetComponent<Rigidbody2D>();
         catAnim = GetComponent<Animator>();
+    }
+
+    private void OnEnable() // 켜질 때 마다 1번씩 실행 (재실행 시 초기화)
+    {
+        transform.localPosition = Vector3.zero; // 고양이 처음 위치
+        GetComponent<CircleCollider2D>().enabled = true; // collider 다시 켜주기
+        soundManager.audioSource.mute = false; // 음소거 초기화
     }
 
     // Update is called once per frame
@@ -73,7 +77,7 @@ public class CatController : MonoBehaviour
             if (GameManager.score == 10) // 사과 10개 획득 후 게임 종료
             {
                 FadeUI.SetActive(true);
-                FadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white);
+                FadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white,true);
                 this.GetComponent<CircleCollider2D>().enabled = false;
 
                 //Invoke("HappyVideoPlay", 5f); 코루틴으로 대체
@@ -91,7 +95,7 @@ public class CatController : MonoBehaviour
 
             gameOverUI.SetActive(true);
             FadeUI.SetActive(true);
-            FadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black);
+            FadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black, true);
 
             this.GetComponent<CircleCollider2D>().enabled = false;
             //Invoke("UnHappyVideoPlay", 5f); 코루틴으로 대체
@@ -113,13 +117,28 @@ public class CatController : MonoBehaviour
     IEnumerator EndingRoutine(bool isHappy)
     {
         yield return new WaitForSeconds(3.5f);
-        videoManager.VideoPlay(isHappy); // 영상 실행 시 약간 밀리는 현상
 
-        yield return new WaitUntil(() => videoManager.vPlayer.isPlaying); // vPlayer 에서 실행중인지 여부 판단 bool 타입
-        // 잔여 UI off 처리
-        FadeUI.SetActive(false);
-        gameOverUI.SetActive(false);
+        // play 그룹 오브젝트를 off 처리
+        // 코드 입장에서 가독성 떨어짐 주의!!
+        // 상위 오브젝트 꺼져서 CatController 동작 멈춤
+
+
+        videoManager.VideoPlay(isHappy); // 영상 실행 시 약간 밀리는 현상
+        yield return new WaitForSeconds(1f);
         soundManager.audioSource.mute = true;
+        
+        var newColor = isHappy ? Color.white : Color.black;
+        Debug.Log("페이드 해제");
+        FadeUI.GetComponent<FadeRoutine>().OnFade(3f, newColor, false); // 페이드 실행
+        // 잔여 UI off 처리
+
+        gameOverUI.SetActive(false);
+        yield return new WaitForSeconds(3f);
+
+        FadeUI.SetActive(false);
+        Debug.Log("영상 재생 완료");
+
+        transform.parent.gameObject.SetActive(false); 
     }
 
     /*

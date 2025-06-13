@@ -10,7 +10,7 @@ namespace Cat
         public TextMeshProUGUI playTimeUI;
         public TextMeshProUGUI ScoreUI;
 
-        private float timer;
+        private static float timer;
         public static int score; // 사과를 먹은 갯수, 타 클래스에서 접근 가능하도록 static 선언
         public static bool isPlay = false;
 
@@ -28,6 +28,12 @@ namespace Cat
             playTimeUI.text = $"{timer:F1}";
             ScoreUI.text = $"X {score}";
 
+        }
+
+        public static void ResetPlayUI()
+        {
+            timer = 0f;
+            score = 0;
         }
     }
 }
