@@ -60,8 +60,8 @@ public class StudyCasting : MonoBehaviour
 
         // 다운 캐스팅
         // 상위 범위를 하위에 할당하면 문제 발생
-        Monster m5 = new Monster();
-        Orc o2 = (Orc)m5; 
+        //Monster m5 = new Monster();
+        //Orc o2 = (Orc)m5; 
 
     }
 }
