@@ -1,27 +1,22 @@
+using System;
 using UnityEngine;
-using UnityEngine.VFX;
+using UnityEngine.UI;
 
-public class KnightController_JoyStickController : MonoBehaviour
+
+public class KnightController_Joy : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D knightRb;
 
     private Vector3 inputDir;
-    [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float jumpPower = 15f;
 
-    private bool isGround = false;
+    [SerializeField] private float moveSpeed = 3f;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         knightRb = GetComponent<Rigidbody2D>();
-    }
-    private void Update() // 일반적인 작업
-    {
-        SetAnimation();
-        SetAnimationFlip();
-        Jump();
     }
 
     private void FixedUpdate() // 물리적인 작업
@@ -29,73 +24,27 @@ public class KnightController_JoyStickController : MonoBehaviour
         Move();
     }
 
-    /* 기존 키보드 입력 기능
-    private void InputJoyStick()
+
+    public void InputJoyStick(float x, float y)
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        inputDir = new Vector3(x, y, 0).normalized; // x, y는 조이스틱에서 입력받은 값 / 정규화
 
-        inputDir = new Vector3(h, v, 0);
 
-    }
-    */
+        // 조이스틱 입력을 애니메이션에 전달
+        animator.SetFloat("JoystickX", inputDir.x);
+        animator.SetFloat("JoystickY", inputDir.y);
 
-    private void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround) // 일시적인 이벤트, update 구문에서 반복 계산할 필요 없음
-        {
-            animator.SetTrigger("Jump");
-            knightRb.AddForceY(jumpPower, ForceMode2D.Impulse); // 한번에 강한힘
-        }
     }
 
     private void Move()
     {
         if (inputDir.x != 0)
         {
-            knightRb.linearVelocityX = inputDir.x * moveSpeed;
-        }
-    }
-
-    private void SetAnimation()
-    {
-        // SetAnimation
-        if (inputDir.x != 0)
-        {
-            knightRb.linearVelocityX = inputDir.x * moveSpeed;
-            animator.SetBool("isRun", true);
-        }
-        else if (inputDir.x == 0)
-        {
-            animator.SetBool("isRun", false);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            animator.SetBool("isGround", true);
-            isGround = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            animator.SetBool("isGround", false);
-            isGround = false;
-        }
-    }
-
-    private void SetAnimationFlip()
-    {
-        // SpriteFlip
-        if (inputDir.x != 0)
-        {
+            // 애니메이션 플립 기능 유지
             var scaleX = inputDir.x > 0 ? 1 : -1;
             transform.localScale = new Vector3(scaleX, 1, 1);
+
+            knightRb.linearVelocity = inputDir * moveSpeed;
         }
     }
-
 }

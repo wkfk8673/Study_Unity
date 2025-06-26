@@ -244,6 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92599c11022e7054caa87e5e00dc2505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  videoManager: {fileID: 0}
+  gameOverUI: {fileID: 0}
+  FadeUI: {fileID: 0}
   jumpPower: 20
 --- !u!58 &224838155
 CircleCollider2D:
@@ -1121,6 +1125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64aebeeb1f54464aac48c9a64d836ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  play: {fileID: 0}
+  Fade: {fileID: 0}
 --- !u!114 &826226140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,9 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6e9592a601a9a4f99b45c2f297a47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  returnPosX: 15
-  randomPosY: 0
 --- !u!1 &1447351920
 GameObject:
   m_ObjectHideFlags: 0

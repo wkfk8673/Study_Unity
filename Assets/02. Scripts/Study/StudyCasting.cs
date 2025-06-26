@@ -8,8 +8,8 @@ public class StudyCasting : MonoBehaviour
     private int number1 = 1;
     private float number2 = 1.99f;
 
-    List<Orc> orcs = new List<Orc>();
-    List<Goblin> goblins = new List<Goblin>();
+    //List<Orc> orcs = new List<Orc>();
+    //List<Goblin> goblins = new List<Goblin>();
 
     List<Monster> monsters = new List<Monster>();
 
@@ -47,16 +47,16 @@ public class StudyCasting : MonoBehaviour
         //하나하나 불러오기 귀찮음
         //동일 클래스를 상속받았으니 형변환 가능
 
-        Orc o = new Orc();
-        Goblin g = new Goblin();
+        //Orc o = new Orc();
+        //Goblin g = new Goblin();
 
-        monsters.Add(o); // 동일 클래스 상속으로 인해, 몬스터 타입에 orc / goblin 형변환 사용 가능
-        monsters.Add(g);
+        //monsters.Add(o); // 동일 클래스 상속으로 인해, 몬스터 타입에 orc / goblin 형변환 사용 가능
+        //monsters.Add(g);
 
         // 업 캐스팅, 문제없이 사용가능
         // 명시적 형변환
-        Monster M1 = (Monster) o; 
-        Monster M2 = (Monster) g;
+        //Monster M1 = (Monster) o; 
+        //Monster M2 = (Monster) g;
 
         // 다운 캐스팅
         // 상위 범위를 하위에 할당하면 문제 발생
