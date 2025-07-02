@@ -87,9 +87,9 @@ public class CatController : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Pipe"))
+        if (other.gameObject.CompareTag("Pipe"))
         {
             soundManager.OnColliderSound(); // 사운드 매니저 내 충돌 효과음
 
@@ -101,7 +101,7 @@ public class CatController : MonoBehaviour
             //Invoke("UnHappyVideoPlay", 5f); 코루틴으로 대체
             StartCoroutine(EndingRoutine(false));
         }
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
             catAnim.SetBool("Ground", true);
 
