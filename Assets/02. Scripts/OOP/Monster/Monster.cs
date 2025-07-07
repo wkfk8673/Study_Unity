@@ -8,8 +8,8 @@ public abstract class Monster : MonoBehaviour
     private SpriteRenderer sRenderer;
     private Animator animator;
 
-    protected float hp = 3f;
-    protected float moveSpeed = 3f;
+    [SerializeField] protected float hp = 3f;
+    [SerializeField] protected float moveSpeed = 3f;
 
     private int dir = 1;
     public int Dir
@@ -53,6 +53,7 @@ public abstract class Monster : MonoBehaviour
 
         if (transform.position.x > 8f)
             dir = -1;
+
         else if (transform.position.x < -8f)
             dir = 1;
 

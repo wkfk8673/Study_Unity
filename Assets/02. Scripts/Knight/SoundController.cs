@@ -17,6 +17,7 @@ public class SoundController : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject); //LoadScene 이용하여 씬 전환 시에 이 오브젝트를 파괴하지 않도록 선언
         // 현재 설정 값으로 초기화
         bgmVolume.value = BGM.volume;
         sfxVolume.value = SFX.volume;

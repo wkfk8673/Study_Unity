@@ -12,6 +12,8 @@ TagManager:
   - Apple
   - Pipe
   - Monster
+  - Ladder
+  - Push
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Monster
+  - Coin
   - 
   - 
   - 
