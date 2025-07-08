@@ -1,10 +1,6 @@
 using UnityEngine;
 
-public class Goblin : Monster
+public class Goblin : MonsterCore
 {
-    public override void Init()
-    {
-        hp = 3f;
-        moveSpeed = 3f;
-    }
+
 }
